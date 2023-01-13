@@ -98,3 +98,4 @@ RSpec.configure do |config|
 end
 
 require './lib/parser'
+require './lib/presenter'
