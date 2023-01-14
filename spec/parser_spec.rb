@@ -26,7 +26,7 @@ RSpec.describe Parser do
     end
 
     it 'returns visit counts' do
-      is_expected.to eq('/help_page/1' => 2, '/contact' => 1)
+      is_expected.to eq({ '/help_page/1' => 2, '/contact' => 1 })
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Parser do
     end
 
     it 'returns unique counts' do
-      is_expected.to eq('/contact' => 2, '/help_page/1' => 1)
+      is_expected.to eq({ '/contact' => 2, '/help_page/1' => 1 })
     end
   end
 end
