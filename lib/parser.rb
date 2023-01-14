@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/presenter'
+require './lib/presenters/ordered'
 require './lib/parsers/visits'
 require './lib/parsers/uniques'
 

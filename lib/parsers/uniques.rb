@@ -2,7 +2,7 @@
 
 module Parsers
   module Uniques
-    include Presenter
+    include Presenter::Ordered
 
     def uniques
       data

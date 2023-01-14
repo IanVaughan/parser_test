@@ -2,7 +2,7 @@
 
 module Parsers
   module Visits
-    include Presenter
+    include Presenter::Ordered
 
     def visits
       data
