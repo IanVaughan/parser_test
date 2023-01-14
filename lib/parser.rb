@@ -2,19 +2,19 @@
 
 class Parser
   def initialize
-    @visits = Hash.new(0)
-    @unique = Hash.new { |h, k| h[k] = Hash.new(0) }
+    @data = Hash.new { |h, k| h[k] = Hash.new(0) }
   end
 
   def parse(line)
     url, ip_address = line.split(' ')
-    @visits[url] += 1
-    @unique[url][ip_address] += 1
+    @data[url][ip_address] += 1
+  end
+
+  def visits
+    @data.transform_values { |v| v.values.sum }
   end
 
   def unique
-    @unique.transform_values(&:count)
+    @data.transform_values(&:count)
   end
-
-  attr_reader :visits
 end
