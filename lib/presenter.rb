@@ -1,11 +1,21 @@
 # frozen_string_literal: true
 
 class Presenter
-  def visits(data)
-    data.sort_by { |_a, b| b }.reverse.map { |k, v| "#{k} #{v} visits" }.join('\n')
+  def initialize(data)
+    @data = data
   end
 
-  def unique(data)
-    data.sort_by { |_a, b| b }.reverse.map { |k, v| "#{k} #{v} unique views" }.join('\n')
+  def visits = sort('visits')
+  def unique = sort('unique views')
+
+  private
+
+  attr_reader :data
+
+  def sort(text)
+    data
+      .sort_by { |_a, b| b }
+      .reverse
+      .map { |k, v| "#{k} #{v} #{text}" }
   end
 end
