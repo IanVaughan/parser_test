@@ -6,7 +6,7 @@ class Parser
   end
 
   def parse(line)
-    url, ip_address = line.split(' ')
+    url, ip_address = line.split
     @data[url][ip_address] += 1
   end
 

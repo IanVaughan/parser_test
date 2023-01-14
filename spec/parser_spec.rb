@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Parser do
+RSpec.describe Parser do # rubocop:disable Metrics/BlockLength
   let(:instance) { described_class.new }
   let(:line1) { '/help_page/1 126.318.035.038' }
   let(:line2) { '/contact 184.123.665.067' }
