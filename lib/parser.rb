@@ -6,17 +6,16 @@ class Parser
   end
 
   def parse(line)
+    return unless line.respond_to?(:split)
+
     url, ip_address = line.split
+    return unless url.is_a?(String) && ip_address.is_a?(String)
+
     data[url][ip_address] += 1
   end
 
-  def visits
-    data.transform_values { |v| v.values.sum }
-  end
-
-  def unique
-    data.transform_values(&:count)
-  end
+  def visits = data.transform_values { |v| v.values.sum }
+  def unique = data.transform_values(&:count)
 
   private
 
