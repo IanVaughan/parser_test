@@ -97,5 +97,6 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
+require 'pry'
 require './lib/parser'
 require './lib/presenter'

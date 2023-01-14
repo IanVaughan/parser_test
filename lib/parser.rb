@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
+require './lib/presenter'
+require './lib/parsers/visits'
+require './lib/parsers/uniques'
+
 class Parser
+  include Parsers::Visits
+  include Parsers::Uniques
+
   def initialize
     @data = Hash.new { |h, k| h[k] = Hash.new(0) }
   end
@@ -13,9 +20,6 @@ class Parser
 
     data[url][ip_address] += 1
   end
-
-  def visits = data.transform_values { |v| v.values.sum }
-  def unique = data.transform_values(&:count)
 
   private
 

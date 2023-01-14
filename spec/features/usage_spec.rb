@@ -9,7 +9,7 @@ RSpec.describe 'Usage' do
     parser = Parser.new
     File.foreach(file_input) { |line| parser.parse(line) }
 
-    expect(Presenter.new(parser.visits).visits).to eq(
+    expect(parser.visits).to eq(
       [
         '/about/2 90 visits',
         '/contact 89 visits',
@@ -20,7 +20,7 @@ RSpec.describe 'Usage' do
       ]
     )
 
-    expect(Presenter.new(parser.unique).unique).to eq(
+    expect(parser.uniques).to eq(
       [
         '/index 23 unique views',
         '/home 23 unique views',
