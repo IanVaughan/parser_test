@@ -7,14 +7,18 @@ class Parser
 
   def parse(line)
     url, ip_address = line.split
-    @data[url][ip_address] += 1
+    data[url][ip_address] += 1
   end
 
   def visits
-    @data.transform_values { |v| v.values.sum }
+    data.transform_values { |v| v.values.sum }
   end
 
   def unique
-    @data.transform_values(&:count)
+    data.transform_values(&:count)
   end
+
+  private
+
+  attr_reader :data
 end
